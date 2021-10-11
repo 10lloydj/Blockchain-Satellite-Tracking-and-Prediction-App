@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>BlockchainPage</title>
+    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="static/assets/css/simple-footer.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-light navbar-expand-md">
+            <div class="container-fluid"><a class="navbar-brand">Satellite Tracker</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse"
+                    id="navcol-1">
+                    <ul class="nav navbar-nav nav-fill w-100">
+                        <li role="presentation" class="nav-item"><a class="nav-link" href="{{url_for('satellite.index') }}">Home</a></li>
+                        <li role="presentation" class="nav-item"><a class="nav-link" href="{{url_for('satellite.about') }}">About</a></li>
+                        <li role="presentation" class="nav-item"><a class="nav-link" href="{{url_for('satellite.blockchain') }}">Blocks</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section>                       <!--  MAIN SECTION: contains the blockchain table  -->
+            <h4 class="display-4 text-center" style="padding-bottom: 20px;">Smart Contract Blocks</h4>
+            <h6 class="text-muted text-center card-subtitle mb-2" style="padding-bottom: 20px;">A transaction is created each time a block is changed or called</h6>
+            <div class="container">
+                <div>
+                    <div class="table-responsive text-left border rounded shadow-lg">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Transaction Hash</th>
+                                    <th>Block number</th>
+                                    <th>Date Saved</th>
+                                    <th>Satellite Name</th>
+                                    <th>NORAD ID<br /></th>
+                                    <th>Longitude<br /></th>
+                                    <th>Latitude</th>
+                                    <!--<th>Time/Date (UTC)<br /></th>-->
+                                    <th>Azimuth<br /></th>
+                                    <th>Elevation<br /></th>
+                                    <th>Comments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- a row for each block-->
+                                <!-- imports the block data from the database-->
+                                {% for block in blocks %}
+                                    <tr>
+                                        <td>{{block['tx_hash']}}</td>
+                                        <td>{{block['block_no']}}</td>
+                                        <td>{{block['date']}}</td>
+                                        <td>{{block['satname']}}</td>
+                                        <td>{{block['satid']}}</td>
+                                        <td>{{block['longitude']}}</td>
+                                        <td>{{block['latitude']}}</td>
+                                        <!--<td>{{block['timestamp']}}</td>-->
+                                        <td>{{block['azimuth']}}</td>
+                                        <td>{{block['elevation']}}</td>
+                                        <td>{{block['comment']}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-2" style="background-color: rgb(255,255,255);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8 col-sm-6 col-md-6">
+                        <p class="text-left" style="margin-top: 5%;margin-bottom: 3%;color: rgb(0,0,0);">© 2021 Satellite Tracker - Jordan Lloyd</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Satellite</title>
+    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="static/assets/css/simple-footer.css">
+</head>
+
+<body>
+    <header>
+        <section>
+            <div>
+                <nav class="navbar navbar-light navbar-expand-md">
+                    <div class="container-fluid"><a class="navbar-brand">Satellite Tracker</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                        <div
+                            class="collapse navbar-collapse" id="navcol-1">
+                            <ul class="nav navbar-nav nav-fill w-100">
+                                <li class="nav-item" role="presentation"><a class="nav-link active" href="{{url_for('satellite.index') }}">Home</a></li>
+                                <li class="nav-item" role="presentation"><a class="nav-link" href="{{url_for('satellite.about') }}">About</a></li>
+                                <li class="nav-item" role="presentation"><a class="nav-link" href="{{url_for('satellite.blockchain') }}">Blocks</a></li>          
+                            </ul>
+                    </div>
+            </div>
+            </nav>
+            </div>
+        </section>
+    </header>
+    <main> 
+        <section>                   <!-- Nearby Satellites row-->
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5" style="padding: 16px;"><a ><img class="rounded-circle img-fluid border shadow-lg" data-bs-hover-animate="pulse" src="static/assets/img/pexels-spacex-23763.jpg" width="300" height="300" style="height: 297px;"></a></div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <h2 class="display-4"><strong>Nearby Satellites</strong><br></h2>
+                            <p> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M11.536 3.464a5 5 0 010 7.072L8 14.07l-3.536-3.535a5 5 0 117.072-7.072v.001zm1.06 8.132a6.5 6.5 0 10-9.192 0l3.535 3.536a1.5 1.5 0 002.122 0l3.535-3.536zM8 9a2 2 0 100-4 2 2 0 000 4z"></path></svg>Ancoats, Manchester </p>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>NORAD ID</th>
+                                            <th>Satellite Name </th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% if nearsats is defined %}
+                                        {% for sat in nearsats %}
+                                        <tr>
+                                            <td>{{sat['satid']}}</td>
+                                            <td>{{sat['satname']}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>                   <!-- Popular Satellites Table row-->
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5"><a><img class="rounded-circle img-fluid border shadow-lg" data-bs-hover-animate="pulse" src="static/assets/img/pexels-pixabay-2156.jpg" width="300" height="300" style="height: 300px;"></a></div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5">
+                            <h2 class="display-4"><strong>Popular Satellites</strong><br></h2>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>NORAD ID</th>
+                                            <th>Satellite Name </th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{popids[0]}}</td>
+                                            <td>{{popnames[0]}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{popids[1]}}</td>
+                                            <td>{{popnames[1]}}</td>
+                                        </tr>
+                                        <!--<tr>
+                                            <td>{{popids[2]}}</td>
+                                            <td>{{popnames[2]}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{popids[3]}}</td>
+                                            <td>{{popnames[3]}}</td>
+                                        </tr>-->
+                                        <tr>
+                                            <td>{{popids[4]}}</td>
+                                            <td>{{popnames[4]}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{popids[5]}}</td>
+                                            <td>{{popnames[5]}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>                                       <!-- Track Satellites row-->
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5"><a ><img class="rounded-circle img-fluid border shadow-lg" data-bs-hover-animate="pulse" src="static/assets/img/pexels-pixabay-41006.jpg" width="300" height="300" style="height: 300px;"></a></div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <h1 class="display-4"><strong>Track Satellite</strong><br></h1>
+                            <div class="form-group">
+                                <!-- The url returns a json always, so validate by ensuring the satname is not empty-->
+                                {% for message in get_flashed_messages() %}
+                                <div class="flash">{{ message }}</div>
+                                {% endfor %}
+                                <form method="POST"><input class="form-control" type="search" placeholder="NORAD ID" name="satelliteid" id="satelliteid">
+                                    <button class="btn btn-primary" type="submit" style="margin: 0px;margin-left: 0px;">Select</button>
+                                </form>
+                            </div>
+                          <!--  <div>
+                                <form method="GET"><input type="text" id="satblck" name="satblack" value={{satinfo}}></form>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class= "footer">
+        <div class="footer-2 " style="background-color: rgb(255,255,255);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8 col-sm-6 col-md-6">
+                        <p class="text-left" style="margin-top: 5%;margin-bottom: 3%;color: rgb(0,0,0);">© 2021 Satellite Tracker - Jordan Lloyd</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="static/assets/js/jquery.min.js"></script>
+    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/assets/js/bs-init.js"></script>
+</body>
+
+</html>

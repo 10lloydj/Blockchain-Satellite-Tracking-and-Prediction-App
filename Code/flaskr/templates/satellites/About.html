@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Satellite</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="static/assets/css/simple-footer.css">
+</head>
+
+
+<body>
+    <header>
+        <nav class="navbar navbar-light navbar-expand-md">
+            <div class="container-fluid"><a class="navbar-brand">Satellite Tracker</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse"
+                    id="navcol-1">
+                    <ul class="nav navbar-nav nav-fill w-100">
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{{url_for('satellite.index') }}">Home</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="{{url_for('satellite.about') }}">About</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="{{url_for('satellite.blockchain') }}">Blocks</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+                                            <!-- MAIN MESSAGE -->
+        <section class="bgimage" style="background-image: url(&quot;static/assets/img/pexels-philippe-donn-1169754.jpg&quot;);background-repeat: no-repeat;background-size: cover;background-position: center;background-attachment: fixed;">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <p class="text-center text-white-50" style="padding: 152px;"> We wish to explore the potential applications blockchain technology can have within the space industry.
+                            <br>The ever-growing constellations of satellites such as Starlink and Amazons' Project Kuiper pose a huge concern to other space missions and orbiting artificial satellites.<br>
+                        <br> My app addresses these issues by providng a decentralised platform to freely inform the greater community of satellite data; allowing operators to manoeuvre confidently around the Earths orbit. </p>
+                        <div
+                            class="text-center"></div>
+                </div>
+                                            <!--  CARD: Ethereum -->
+                <div class="row" style="padding-bottom: 100px;">
+                    <div class="col">
+                        <div class="card shadow-lg">
+                            <div class="card-body">
+                                <h4 class="card-title">Ethereum Virtual Machine (EVM)</h4>
+                                <h6 class="text-muted card-subtitle mb-2">Allows smart contract development & stores the blockchain</h6>
+                                <p class="card-text">The EVM is the global virtual computer where all user's on the Ethereum network stores their data in blocks.<br> 
+                                    Smart contracts are published onto the EVM network to be compiled and cause changes to the EVM state, forming a blockchain.<br><br>
+                                    My application uses a smart contract to record satellite data at that current time; creating a 'block' onto the EVM.  
+                                    In addition, allows the user's to view historic recordings of satellite data that are saved in blocks.
+                                    Thus, forming a connection of blocks of all the satellite data on the network (blockchain).<br><br>
+                                    This allows operators to record a selection of satellites through time and look back at their positions and other relevant data.</p>
+                            </div>
+                        </div>
+                    </div>
+                                            <!--  CARD: N2yo  -->
+                    <div class="col">
+                        <div class="card shadow-lg">
+                            <div class="card-body">
+                                <h4 class="card-title">N2yo</h4>
+                                <h6 class="text-muted card-subtitle mb-2">Satellite data API</h6>
+                                <p class="card-text">The API provides data for developers to build satellite tracking or prediction applications.
+                                    It is a free but transaction limited REST API. <br><br>
+                                    The API identifies satellites by their NORAD ID number; an integer ID identifying artificial satellites generated by United States Space Command (USSPACECOM). 
+                                    <br><br>My application retrieves the position relevant data and the TLE (Two Line Element) which identifies satellites manoeuvring statistics.
+                                    This is essentially used to track satellites in real-time and as input to the Skyfield API.<br></p>
+                            </div>
+                        </div>
+                    </div>
+                                            <!--  CARD: Skyfield  -->
+                    <div class="col">
+                        <div class="card shadow-lg">
+                            <div class="card-body">
+                                <h4 class="card-title">Skyfield</h4>
+                                <h6 class="text-muted card-subtitle mb-2">An API using NASA's mathematical model to predict satellite data</h6>
+                                <p class="card-text">Astronomy API that computes positions of stars, planets and artificial satellites.
+                                    This API is much more advanced than N2yo, given the mathematical calculations used within various functions.<br><br>
+                                    My application uses a mathematical model built by NASA scientists that uses the TLE to predict a satellite's location. 
+                                    The model SGP4 is a very complex model that is continuously being innovated to improve accuracy. 
+                                    Skyfield has imported this model to python; allowing developers to accurately predict positions at certain times in the future.<br></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+    <footer class ="footer">
+        <div class="footer-2" style="background-color: rgb(255,255,255);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8 col-sm-6 col-md-6">
+                        <p class="text-left" style="margin-top: 5%;margin-bottom: 3%;color: rgb(0,0,0);">© 2021 Satellite Tracker - Jordan Lloyd</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="static/assets/js/jquery.min.js"></script>
+    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/assets/js/bs-init.js"></script>
+</body>
+</html>

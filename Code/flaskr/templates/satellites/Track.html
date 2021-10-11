@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Satellite</title>
+    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="static/assets/css/simple-footer.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-light navbar-expand-md">
+            <div class="container-fluid"><a class="navbar-brand">Satellite Tracker</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse"
+                    id="navcol-1">
+                    <ul class="nav navbar-nav nav-fill w-100">
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{{url_for('satellite.index') }}">Home</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{{url_for('satellite.about') }}">About</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{{url_for('satellite.blockchain') }}">Blocks</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section>                       <!--  data of the track satellite  -->
+            <div class="container">
+                <div style="padding: 20px;">
+                    <div class="row">
+                        <div class="col">
+                            <div class="table-responsive">
+                                <table class="table ">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>N2yo Topic</th>
+                                            <th>Data Values</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Satellite Name</td>
+                                            <td>{{satdata['info']['satname']}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>NORAD ID</td>
+                                            <td>{{satdata['info']['satid']}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Longitude</td>
+                                            <td>{{satdata['positions'][0]['satlongitude']}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Latitude</td>
+                                            <td>{{satdata['positions'][0]['satlatitude']}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Time/Data</td>
+                                          <!--  <td>{{satdata['positions'][0]['timestamp']}}</td> -->
+                                            <td>{{utc}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Azimuth</td>
+                                            <td>{{satdata['positions'][0]['azimuth']}}</td>
+                                        </tr> 
+                                        <tr>
+                                            <td>Elevation</td>
+                                            <td>{{satdata['positions'][0]['elevation']}}</td>
+                                        </tr>                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#blockModal">Save</button>
+                        <!-- blockchain modal with comment section-->
+                        <div class="modal fade" id="blockModal" role="dialog">
+                            <div class="modal-dialog">
+                                <!-- modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h3 class="modal-title">Save the {{satdata['info']['satname']}}  data to the smart contract </h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <form method="POST"><input type="text" class="form-control" placeholder="Comments" id="satComment" name="satComment"/>
+                                            <button class="btn btn-primary" type="submit" name="submit" value="save">Save</button></form>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                      </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        </div>
+                                    <!-- Google Map tracking -->
+                        <div class="col" id="map">
+                            <iframe
+                            width="100%"
+                            height="400"
+                            style="border:0"
+                            loading="lazy"
+                            allowfullscreen
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBYQ-gTYh6WZ6zeGBjRTt01epBjoIcR310&q={{satdata['positions'][0]['satlatitude']}},{{satdata['positions'][0]['satlongitude']}}&amp;zoom=2">
+                          </iframe>
+                        </div><!-- width:100% height:'400'-->
+                        </div>
+                    <div class="row">
+                        <div class="col">
+                            <form method="POST"><label>Predict Satellite Position&nbsp;</label><select class="form-control" name="predict"><option value="1">1 HR</option><option value="2">2 HR</option><option value="4">4 HR</option><option value="6">6 HR</option><option value="12">12 HR</option><option value="24">1 DAY</option><option value="40">4 DAYS</option><option value="70">7 DAYS</option></select>
+                            <button
+                                class="btn btn-primary" type="submit" name="submit" value="predict">Select</button></div></div></form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% if lon is defined %}
+        <section>                   <!-- predictions of the satellites position with a google map representation -->
+            <div class="container">
+                <div>
+                    <div class="row">
+                                    <!-- Google Map prediction -->
+                        <div class="col" id="map2">
+                            <iframe
+                            width="100%"
+                            height="400"
+                            style="border:0"
+                            loading="lazy"
+                            allowfullscreen
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBYQ-gTYh6WZ6zeGBjRTt01epBjoIcR310&q={{lon}},{{lat}}&amp;zoom=2">
+                          </iframe>
+                          <!--src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBYQ-gTYh6WZ6zeGBjRTt01epBjoIcR310&q={{lon}},{{lat}}&amp;zoom=2">-->
+
+                        </div>
+                        <div class="col">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Longitude</th>
+                                            <th>Latitude</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{lon}}</td>
+                                            <td>{{lat}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+    </main>
+    <footer class="footer">
+        <div class="footer-2" style="background-color: rgb(255,255,255);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8 col-sm-6 col-md-6">
+                        <p class="text-left" style="margin-top: 5%;margin-bottom: 3%;color: rgb(0,0,0);">© 2021 Satellite Tracker - Jordan Lloyd</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="static/assets/js/jquery.min.js"></script>
+    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/assets/js/bs-init.js"></script>
+</body>
+
+</html>
