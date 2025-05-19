@@ -10,6 +10,9 @@ import urllib, json
 import urllib.request, json
 # blockchain packages
 from web3 import Web3, HTTPProvider
+import os
+from dotenv import load_dotenv
+from pathlib import Path
 
 from datetime import datetime, date, timedelta
 import calendar
@@ -17,34 +20,46 @@ import calendar
 from pytz import timezone
 bp = Blueprint('satellite', __name__)
 
+# Load environment variables
+load_dotenv()
+
+# Get the project root directory
+PROJECT_ROOT = Path(__file__).parent.parent.parent
+
 # N2yo API key
-api_key = 'KQ9N7M-XWZL5A-NV4CAK-4NG8'
+api_key = os.getenv('N2YO_API_KEY')
+if not api_key:
+    raise ValueError("N2YO_API_KEY environment variable is not set")
+
 # Skyfield API prediction API
 from skyfield.api import load, EarthSatellite, wgs84
-#   Smart Contract data set up
 
-# source: https://dev.to/gcrsaldanha/deploy-a-smart-contract-on-ethereum-with-python-truffle-and-web3py-5on
-# blockchain smart contract code, possible to do it on this
-
-
-# ganache address (EVM local blockchain network)
-blockchain_address = 'http://127.0.0.1:7545'
-# Client instance to interact with the blockchain
+# Blockchain configuration
+blockchain_address = os.getenv('BLOCKCHAIN_ADDRESS', 'http://127.0.0.1:7545')
 web3 = Web3(Web3.HTTPProvider(blockchain_address))
-# Set the default account (so we don't need to set the "from" for every transaction call)
 web3.eth.defaultAccount = web3.eth.accounts[0]
-# Path to the compiled contract Satellites JSON file
-compiled_contract_path = '/Users/jordanlloyd/Satellite/Code/flaskr/artifacts/Satellites.json'
-# Deployed contract address (changes if I migrate --reset the contract)
-deployed_contract_address = '0x26aDB61B71Dfe8eE3d9AA1Dd1eE6Ba0BE6bB9238'
+
+# Contract configuration
+contract_artifact_path = os.getenv('CONTRACT_ARTIFACT_PATH', 'Code/flaskr/artifacts/Satellites.json')
+compiled_contract_path = PROJECT_ROOT / contract_artifact_path
+deployed_contract_address = os.getenv('CONTRACT_ADDRESS')
+if not deployed_contract_address:
+    raise ValueError("CONTRACT_ADDRESS environment variable is not set")
 
 # retrieves the smart contract data
-with open(compiled_contract_path) as file:
-    contract_json = json.load(file)  # load contract info as JSON
-    contract_abi = contract_json['abi']  # fetch contract's abi - necessary to call its functions
+try:
+    with open(compiled_contract_path) as file:
+        contract_json = json.load(file)
+        contract_abi = contract_json['abi']
+except FileNotFoundError:
+    raise FileNotFoundError(f"Contract artifact not found at {compiled_contract_path}")
 
 # Fetch deployed contract reference
 contract = web3.eth.contract(address=deployed_contract_address, abi=contract_abi)
+
+# Default location coordinates
+DEFAULT_LATITUDE = float(os.getenv('DEFAULT_LATITUDE', '53.48095'))
+DEFAULT_LONGITUDE = float(os.getenv('DEFAULT_LONGITUDE', '-2.23743'))
 
 # satellite home page route
 @bp.route('/satelliteindex', methods=('GET', 'POST'))
@@ -170,7 +185,7 @@ def blockchain():
 # function retrieves the satellite data to a python dictionary
 def get_info(satelliteid):
     #formats the satellite id and the api key into the link
-    positionurl = "https://api.n2yo.com/rest/v1/satellite/positions/{}/53.48095/-2.23743/38/1/&apiKey={}".format(satelliteid, api_key)
+    positionurl = f"https://api.n2yo.com/rest/v1/satellite/positions/{satelliteid}/{DEFAULT_LATITUDE}/{DEFAULT_LONGITUDE}/38/1/&apiKey={api_key}"
 
     # json data parsed into python dictionary
     with urllib.request.urlopen(positionurl) as responsepos:
@@ -269,7 +284,7 @@ def pred_longlat(tle, period):
 # function to retrieve nearby satellite names and information to manchester within 4degrees above
 def get_near():
     # json data parsed into python dictionary
-    nearjson = "https://api.n2yo.com/rest/v1/satellite/above/53.48095/-2.23743/38/4/0/&apiKey={}".format(api_key)
+    nearjson = f"https://api.n2yo.com/rest/v1/satellite/above/{DEFAULT_LATITUDE}/{DEFAULT_LONGITUDE}/38/4/0/&apiKey={api_key}"
 
     with urllib.request.urlopen(nearjson) as responsepos:
         data = json.loads(responsepos.read())

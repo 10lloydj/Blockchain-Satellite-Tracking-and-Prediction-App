@@ -1,12 +1,12 @@
 MANIFEST.in
 setup.py
-flaskr/SatellitePred.py
 flaskr/__init__.py
 flaskr/auth.py
 flaskr/blog.py
 flaskr/db.py
 flaskr/satellite.py
 flaskr/schema.sql
+flaskr/testtle.py
 flaskr.egg-info/PKG-INFO
 flaskr.egg-info/SOURCES.txt
 flaskr.egg-info/dependency_links.txt
@@ -26,6 +26,7 @@ flaskr/static/assets/img/pexels-pixabay-41006.jpg
 flaskr/static/assets/img/pexels-spacex-23763.jpg
 flaskr/static/assets/js/bs-init.js
 flaskr/static/assets/js/jquery.min.js
+flaskr/templates/.DS_Store
 flaskr/templates/base.html
 flaskr/templates/auth/login.html
 flaskr/templates/auth/register.html
@@ -37,3 +38,7 @@ flaskr/templates/satellites/Track.html
 flaskr/templates/satellites/block.js
 flaskr/templates/satellites/index.html
 flaskr/templates/satellites/viewBlocks.html
+tests/test_db.py
+tests/test_factory.py
+tests/test_satellite_functions.py
+tests/test_satellite_routes.py
