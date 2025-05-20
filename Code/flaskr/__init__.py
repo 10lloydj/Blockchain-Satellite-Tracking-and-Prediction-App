@@ -31,12 +31,8 @@ def create_app(test_config=None):
     #imports and registers the blueprints
     from . import auth
     app.register_blueprint(auth.bp)
-    # main website
-    from . import blog
-    app.register_blueprint(blog.bp)
-    # index (homepage)
-    app.add_url_rule('/', endpoint='index')
-    # satellite website (soon to be the main website)
+    
+    # main website (satellite tracking)
     from . import satellite
     app.register_blueprint(satellite.bp)
 

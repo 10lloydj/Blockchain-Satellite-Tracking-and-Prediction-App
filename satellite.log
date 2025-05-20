@@ -1,0 +1,713 @@
+2025-05-20 19:47:17,620 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 19:47:17,620 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-20 19:47:32,771 - flaskr.satellite - INFO - Route accessed: GET /track
+2025-05-20 19:47:32,772 - flaskr.satellite - INFO - Request parameters: {'satelliteid': '36516'}
+2025-05-20 19:47:32,772 - flaskr.satellite - INFO - Tracking satellite ID: 36516
+2025-05-20 19:47:32,772 - flaskr.satellite - INFO - Fetching info for satellite ID: 36516
+2025-05-20 19:47:34,217 - flaskr.satellite - INFO - Successfully retrieved data for satellite ID: 36516
+2025-05-20 19:47:34,218 - flaskr.satellite - ERROR - Error in route /track: type object 'datetime.datetime' has no attribute 'UTC'
+Traceback (most recent call last):
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 101, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 162, in track
+    utc = getUTC(satdata['positions'][0]['timestamp'])
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 278, in getUTC
+    utc = datetime.fromtimestamp(timestamp, datetime.UTC).strftime('%Y-%m-%d %H:%M:%S')
+AttributeError: type object 'datetime.datetime' has no attribute 'UTC'
+2025-05-20 19:47:34,220 - flaskr - ERROR - Exception on /track [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 101, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 162, in track
+    utc = getUTC(satdata['positions'][0]['timestamp'])
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 278, in getUTC
+    utc = datetime.fromtimestamp(timestamp, datetime.UTC).strftime('%Y-%m-%d %H:%M:%S')
+AttributeError: type object 'datetime.datetime' has no attribute 'UTC'
+2025-05-20 19:47:34,223 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:47:34] "[35m[1mGET /track?satelliteid=36516 HTTP/1.1[0m" 500 -
+2025-05-20 19:48:16,809 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 19:48:16,809 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-20 19:48:36,463 - flaskr.satellite - INFO - Route accessed: GET /track
+2025-05-20 19:48:36,463 - flaskr.satellite - INFO - Request parameters: {'satelliteid': '36516'}
+2025-05-20 19:48:36,463 - flaskr.satellite - INFO - Tracking satellite ID: 36516
+2025-05-20 19:48:36,464 - flaskr.satellite - INFO - Fetching info for satellite ID: 36516
+2025-05-20 19:48:36,769 - flaskr.satellite - INFO - Successfully retrieved data for satellite ID: 36516
+2025-05-20 19:48:36,769 - flaskr.satellite - ERROR - Error in route /track: 'function' object has no attribute 'utc'
+Traceback (most recent call last):
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 101, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 162, in track
+    utc = getUTC(satdata['positions'][0]['timestamp'])
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 278, in getUTC
+    utc = datetime.fromtimestamp(timestamp, timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+AttributeError: 'function' object has no attribute 'utc'
+2025-05-20 19:48:36,771 - flaskr - ERROR - Exception on /track [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 101, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 162, in track
+    utc = getUTC(satdata['positions'][0]['timestamp'])
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 278, in getUTC
+    utc = datetime.fromtimestamp(timestamp, timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+AttributeError: 'function' object has no attribute 'utc'
+2025-05-20 19:48:36,775 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:48:36] "[35m[1mGET /track?satelliteid=36516 HTTP/1.1[0m" 500 -
+2025-05-20 19:48:37,874 - flaskr.satellite - INFO - Route accessed: GET /track
+2025-05-20 19:48:37,874 - flaskr.satellite - INFO - Request parameters: {'satelliteid': '36516'}
+2025-05-20 19:48:37,875 - flaskr.satellite - INFO - Tracking satellite ID: 36516
+2025-05-20 19:48:37,875 - flaskr.satellite - INFO - Fetching info for satellite ID: 36516
+2025-05-20 19:48:38,157 - flaskr.satellite - INFO - Successfully retrieved data for satellite ID: 36516
+2025-05-20 19:48:38,157 - flaskr.satellite - ERROR - Error in route /track: 'function' object has no attribute 'utc'
+Traceback (most recent call last):
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 101, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 162, in track
+    utc = getUTC(satdata['positions'][0]['timestamp'])
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 278, in getUTC
+    utc = datetime.fromtimestamp(timestamp, timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+AttributeError: 'function' object has no attribute 'utc'
+2025-05-20 19:48:38,158 - flaskr - ERROR - Exception on /track [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 101, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 162, in track
+    utc = getUTC(satdata['positions'][0]['timestamp'])
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 278, in getUTC
+    utc = datetime.fromtimestamp(timestamp, timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+AttributeError: 'function' object has no attribute 'utc'
+2025-05-20 19:48:38,159 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:48:38] "[35m[1mGET /track?satelliteid=36516 HTTP/1.1[0m" 500 -
+2025-05-20 19:49:35,795 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 19:49:35,795 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-20 19:49:42,350 - flaskr.satellite - INFO - Route accessed: GET /satelliteindex
+2025-05-20 19:49:42,352 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 19:49:42,352 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 19:49:42,352 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 19:49:42,697 - flaskr.satellite - INFO - Found 1 nearby satellites
+2025-05-20 19:49:42,715 - flaskr.satellite - INFO - Route completed in 0.37 seconds
+2025-05-20 19:49:42,717 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:42] "GET /satelliteindex HTTP/1.1" 200 -
+2025-05-20 19:49:42,825 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:42] "[36mGET /static/assets/css/simple-footer.css HTTP/1.1[0m" 304 -
+2025-05-20 19:49:42,831 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:42] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
+2025-05-20 19:49:42,836 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:42] "[36mGET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+2025-05-20 19:49:42,840 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:42] "[36mGET /static/assets/img/pexels-spacex-23763.jpg HTTP/1.1[0m" 304 -
+2025-05-20 19:49:42,849 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:42] "[36mGET /static/assets/img/pexels-pixabay-2156.jpg HTTP/1.1[0m" 304 -
+2025-05-20 19:49:42,852 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:42] "[36mGET /static/assets/img/pexels-pixabay-41006.jpg HTTP/1.1[0m" 304 -
+2025-05-20 19:49:42,855 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:42] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
+2025-05-20 19:49:42,857 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:42] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+2025-05-20 19:49:49,525 - flaskr.satellite - INFO - Route accessed: POST /satelliteindex
+2025-05-20 19:49:49,525 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 19:49:49,526 - flaskr.satellite - INFO - Form data: {'satelliteid': ''}
+2025-05-20 19:49:49,527 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 19:49:49,527 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 19:49:49,890 - flaskr.satellite - INFO - Found 1 nearby satellites
+2025-05-20 19:49:49,891 - flaskr.satellite - WARNING - Missing satellite ID in request
+2025-05-20 19:49:49,892 - flaskr.satellite - INFO - Route completed in 0.37 seconds
+2025-05-20 19:49:49,893 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:49] "POST /satelliteindex HTTP/1.1" 200 -
+2025-05-20 19:49:49,964 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:49] "[36mGET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+2025-05-20 19:49:49,966 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:49] "[36mGET /static/assets/img/pexels-spacex-23763.jpg HTTP/1.1[0m" 304 -
+2025-05-20 19:49:49,967 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:49] "[36mGET /static/assets/img/pexels-pixabay-2156.jpg HTTP/1.1[0m" 304 -
+2025-05-20 19:49:49,970 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:49] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
+2025-05-20 19:49:49,970 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:49] "[36mGET /static/assets/css/simple-footer.css HTTP/1.1[0m" 304 -
+2025-05-20 19:49:49,972 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:49] "[36mGET /static/assets/img/pexels-pixabay-41006.jpg HTTP/1.1[0m" 304 -
+2025-05-20 19:49:49,972 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:49] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+2025-05-20 19:49:49,974 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:49] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
+2025-05-20 19:49:53,153 - flaskr.satellite - INFO - Route accessed: POST /satelliteindex
+2025-05-20 19:49:53,154 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 19:49:53,154 - flaskr.satellite - INFO - Form data: {'satelliteid': '36516'}
+2025-05-20 19:49:53,154 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 19:49:53,154 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 19:49:53,736 - flaskr.satellite - INFO - Found 1 nearby satellites
+2025-05-20 19:49:53,737 - flaskr.satellite - INFO - Fetching info for satellite ID: 36516
+2025-05-20 19:49:54,039 - flaskr.satellite - INFO - Successfully retrieved data for satellite ID: 36516
+2025-05-20 19:49:54,040 - flaskr.satellite - INFO - Valid satellite data for: SES 1
+2025-05-20 19:49:54,040 - flaskr.satellite - INFO - Fetching info for satellite ID: 36516
+2025-05-20 19:49:54,341 - flaskr.satellite - INFO - Successfully retrieved data for satellite ID: 36516
+2025-05-20 19:49:54,342 - flaskr.satellite - INFO - Valid satellite data for: SES 1
+2025-05-20 19:49:54,342 - flaskr.satellite - INFO - Valid satellite ID found: 36516
+2025-05-20 19:49:54,344 - flaskr.satellite - INFO - Route completed in 1.19 seconds
+2025-05-20 19:49:54,344 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:54] "[32mPOST /satelliteindex HTTP/1.1[0m" 302 -
+2025-05-20 19:49:54,352 - flaskr.satellite - INFO - Route accessed: GET /track
+2025-05-20 19:49:54,352 - flaskr.satellite - INFO - Request parameters: {'satelliteid': '36516'}
+2025-05-20 19:49:54,353 - flaskr.satellite - INFO - Tracking satellite ID: 36516
+2025-05-20 19:49:54,353 - flaskr.satellite - INFO - Fetching info for satellite ID: 36516
+2025-05-20 19:49:54,658 - flaskr.satellite - INFO - Successfully retrieved data for satellite ID: 36516
+2025-05-20 19:49:54,658 - flaskr.satellite - INFO - Fetching info for satellite ID: 36516
+2025-05-20 19:49:54,961 - flaskr.satellite - INFO - Successfully retrieved data for satellite ID: 36516
+2025-05-20 19:49:54,976 - flaskr.satellite - INFO - Route completed in 0.62 seconds
+2025-05-20 19:49:54,977 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:54] "GET /track?satelliteid=36516 HTTP/1.1" 200 -
+2025-05-20 19:49:55,032 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:55] "[36mGET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+2025-05-20 19:49:55,033 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:55] "[36mGET /static/assets/css/simple-footer.css HTTP/1.1[0m" 304 -
+2025-05-20 19:49:55,036 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:55] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
+2025-05-20 19:49:55,042 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:55] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+2025-05-20 19:49:55,046 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:55] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
+2025-05-20 19:49:58,471 - flaskr.satellite - INFO - Route accessed: GET /satelliteindex
+2025-05-20 19:49:58,472 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 19:49:58,472 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 19:49:58,472 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 19:49:58,845 - flaskr.satellite - INFO - Found 1 nearby satellites
+2025-05-20 19:49:58,847 - flaskr.satellite - INFO - Route completed in 0.38 seconds
+2025-05-20 19:49:58,848 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:58] "GET /satelliteindex HTTP/1.1" 200 -
+2025-05-20 19:49:58,894 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:58] "[36mGET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+2025-05-20 19:49:58,924 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:58] "[36mGET /static/assets/img/pexels-spacex-23763.jpg HTTP/1.1[0m" 304 -
+2025-05-20 19:49:58,925 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:58] "[36mGET /static/assets/img/pexels-pixabay-2156.jpg HTTP/1.1[0m" 304 -
+2025-05-20 19:49:58,927 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:58] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
+2025-05-20 19:49:58,927 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:58] "[36mGET /static/assets/css/simple-footer.css HTTP/1.1[0m" 304 -
+2025-05-20 19:49:58,930 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:58] "[36mGET /static/assets/img/pexels-pixabay-41006.jpg HTTP/1.1[0m" 304 -
+2025-05-20 19:49:58,932 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:58] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+2025-05-20 19:49:58,933 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 19:49:58] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
+2025-05-20 20:28:40,594 - flaskr.satellite - INFO - Route accessed: GET /satelliteindex
+2025-05-20 20:28:40,595 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 20:28:40,595 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 20:28:40,595 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 20:28:42,574 - flaskr.satellite - INFO - Found 6 nearby satellites
+2025-05-20 20:28:42,587 - flaskr.satellite - INFO - Route completed in 1.99 seconds
+2025-05-20 20:28:42,589 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:42] "GET /satelliteindex HTTP/1.1" 200 -
+2025-05-20 20:28:42,687 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:42] "[36mGET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+2025-05-20 20:28:42,690 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:42] "[36mGET /static/assets/css/simple-footer.css HTTP/1.1[0m" 304 -
+2025-05-20 20:28:42,693 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:42] "[36mGET /static/assets/img/pexels-spacex-23763.jpg HTTP/1.1[0m" 304 -
+2025-05-20 20:28:42,705 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:42] "[36mGET /static/assets/img/pexels-pixabay-2156.jpg HTTP/1.1[0m" 304 -
+2025-05-20 20:28:42,709 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:42] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
+2025-05-20 20:28:42,720 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:42] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
+2025-05-20 20:28:42,720 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:42] "[36mGET /static/assets/img/pexels-pixabay-41006.jpg HTTP/1.1[0m" 304 -
+2025-05-20 20:28:42,721 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:42] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+2025-05-20 20:28:46,246 - flaskr.satellite - INFO - Route accessed: GET /about
+2025-05-20 20:28:46,247 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 20:28:46,247 - flaskr.satellite - INFO - Accessing about page
+2025-05-20 20:28:46,262 - flaskr.satellite - INFO - Route completed in 0.02 seconds
+2025-05-20 20:28:46,263 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:46] "GET /about HTTP/1.1" 200 -
+2025-05-20 20:28:46,321 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:46] "[36mGET /static/assets/css/simple-footer.css HTTP/1.1[0m" 304 -
+2025-05-20 20:28:46,322 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:46] "[36mGET /static/bootstrap.min.css HTTP/1.1[0m" 304 -
+2025-05-20 20:28:46,327 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:46] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
+2025-05-20 20:28:46,328 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:46] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+2025-05-20 20:28:46,328 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:46] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
+2025-05-20 20:28:46,334 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:46] "[36mGET /static/assets/img/pexels-philippe-donn-1169754.jpg HTTP/1.1[0m" 304 -
+2025-05-20 20:28:47,459 - flaskr.satellite - INFO - Route accessed: GET /satelliteindex
+2025-05-20 20:28:47,460 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 20:28:47,460 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 20:28:47,460 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 20:28:47,798 - flaskr.satellite - INFO - Found 4 nearby satellites
+2025-05-20 20:28:47,799 - flaskr.satellite - INFO - Route completed in 0.34 seconds
+2025-05-20 20:28:47,800 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:47] "GET /satelliteindex HTTP/1.1" 200 -
+2025-05-20 20:28:47,835 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:47] "[36mGET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+2025-05-20 20:28:47,946 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:47] "[36mGET /static/assets/css/simple-footer.css HTTP/1.1[0m" 304 -
+2025-05-20 20:28:47,948 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:47] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
+2025-05-20 20:28:47,948 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:47] "[36mGET /static/assets/img/pexels-spacex-23763.jpg HTTP/1.1[0m" 304 -
+2025-05-20 20:28:47,948 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:47] "[36mGET /static/assets/img/pexels-pixabay-2156.jpg HTTP/1.1[0m" 304 -
+2025-05-20 20:28:47,949 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:47] "[36mGET /static/assets/img/pexels-pixabay-41006.jpg HTTP/1.1[0m" 304 -
+2025-05-20 20:28:47,955 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:47] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+2025-05-20 20:28:47,959 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:28:47] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
+2025-05-20 20:30:43,806 - flaskr.satellite - INFO - Route accessed: GET /satelliteindex
+2025-05-20 20:30:43,807 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 20:30:43,807 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 20:30:43,807 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 20:30:44,158 - flaskr.satellite - INFO - Found 3 nearby satellites
+2025-05-20 20:30:44,160 - flaskr.satellite - INFO - Route completed in 0.35 seconds
+2025-05-20 20:30:44,161 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:30:44] "GET /satelliteindex HTTP/1.1" 200 -
+2025-05-20 20:30:44,215 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:30:44] "[36mGET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+2025-05-20 20:30:44,230 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:30:44] "[36mGET /static/assets/img/pexels-pixabay-2156.jpg HTTP/1.1[0m" 304 -
+2025-05-20 20:30:44,232 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:30:44] "[36mGET /static/assets/img/pexels-pixabay-41006.jpg HTTP/1.1[0m" 304 -
+2025-05-20 20:30:44,234 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:30:44] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
+2025-05-20 20:30:44,235 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:30:44] "[36mGET /static/assets/css/simple-footer.css HTTP/1.1[0m" 304 -
+2025-05-20 20:30:44,236 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:30:44] "[36mGET /static/assets/img/pexels-spacex-23763.jpg HTTP/1.1[0m" 304 -
+2025-05-20 20:30:44,239 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:30:44] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
+2025-05-20 20:30:44,240 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 20:30:44] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+2025-05-20 21:07:25,185 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 21:07:25,185 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-20 21:07:30,107 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-20 21:07:30,107 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:07:30,108 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 21:07:30,108 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 21:07:30,565 - flaskr.satellite - INFO - Found 1 nearby satellites
+2025-05-20 21:07:30,579 - flaskr.satellite - INFO - Route completed in 0.47 seconds
+2025-05-20 21:07:30,580 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:07:30] "GET / HTTP/1.1" 200 -
+2025-05-20 21:07:30,691 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:07:30] "[36mGET /static/assets/img/pexels-pixabay-2156.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:07:30,692 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:07:30] "[36mGET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+2025-05-20 21:07:30,694 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:07:30] "[36mGET /static/assets/img/pexels-spacex-23763.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:07:30,695 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:07:30] "[36mGET /static/assets/img/pexels-pixabay-41006.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:07:30,700 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:07:30] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+2025-05-20 21:07:30,700 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:07:30] "[36mGET /static/assets/css/simple-footer.css HTTP/1.1[0m" 304 -
+2025-05-20 21:07:30,702 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:07:30] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
+2025-05-20 21:07:30,710 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:07:30] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
+2025-05-20 21:07:32,954 - flaskr.satellite - INFO - Route accessed: GET /about
+2025-05-20 21:07:32,955 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:07:32,955 - flaskr.satellite - INFO - Accessing about page
+2025-05-20 21:07:32,960 - flaskr.satellite - INFO - Route completed in 0.01 seconds
+2025-05-20 21:07:32,973 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:07:32] "GET /about HTTP/1.1" 200 -
+2025-05-20 21:07:33,021 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:07:33] "[36mGET /static/bootstrap.min.css HTTP/1.1[0m" 304 -
+2025-05-20 21:07:33,027 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:07:33] "[36mGET /static/assets/css/simple-footer.css HTTP/1.1[0m" 304 -
+2025-05-20 21:07:33,029 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:07:33] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
+2025-05-20 21:07:33,032 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:07:33] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
+2025-05-20 21:07:33,033 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:07:33] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+2025-05-20 21:07:33,036 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:07:33] "[36mGET /static/assets/img/pexels-philippe-donn-1169754.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:07:33,754 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-20 21:07:33,754 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:07:33,754 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 21:07:33,754 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 21:07:34,113 - flaskr.satellite - ERROR - Error fetching nearby satellites: 'above'
+2025-05-20 21:07:34,115 - flaskr.satellite - ERROR - Error in route /: 'above'
+Traceback (most recent call last):
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:07:34,127 - flaskr - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:07:34,129 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:07:34] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-20 21:08:02,073 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:02] "[33mGET /satelliteindex HTTP/1.1[0m" 404 -
+2025-05-20 21:08:04,297 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-20 21:08:04,298 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:08:04,298 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 21:08:04,298 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 21:08:04,651 - flaskr.satellite - INFO - Found 1 nearby satellites
+2025-05-20 21:08:04,653 - flaskr.satellite - INFO - Route completed in 0.36 seconds
+2025-05-20 21:08:04,653 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:04] "GET / HTTP/1.1" 200 -
+2025-05-20 21:08:04,705 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:04] "[36mGET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+2025-05-20 21:08:04,706 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:04] "[36mGET /static/assets/css/simple-footer.css HTTP/1.1[0m" 304 -
+2025-05-20 21:08:04,708 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:04] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
+2025-05-20 21:08:04,709 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:04] "[36mGET /static/assets/img/pexels-spacex-23763.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:08:04,712 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:04] "[36mGET /static/assets/img/pexels-pixabay-41006.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:08:04,713 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:04] "[36mGET /static/assets/img/pexels-pixabay-2156.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:08:04,714 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:04] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+2025-05-20 21:08:04,714 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:04] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
+2025-05-20 21:08:06,385 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-20 21:08:06,386 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:08:06,386 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 21:08:06,386 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 21:08:06,778 - flaskr.satellite - ERROR - Error fetching nearby satellites: 'above'
+2025-05-20 21:08:06,778 - flaskr.satellite - ERROR - Error in route /: 'above'
+Traceback (most recent call last):
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:08:06,779 - flaskr - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:08:06,781 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:06] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-20 21:08:07,588 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-20 21:08:07,589 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:08:07,589 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 21:08:07,589 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 21:08:07,936 - flaskr.satellite - ERROR - Error fetching nearby satellites: 'above'
+2025-05-20 21:08:07,936 - flaskr.satellite - ERROR - Error in route /: 'above'
+Traceback (most recent call last):
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:08:07,937 - flaskr - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:08:07,938 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:07] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-20 21:08:08,680 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-20 21:08:08,681 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:08:08,681 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 21:08:08,681 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 21:08:09,028 - flaskr.satellite - ERROR - Error fetching nearby satellites: 'above'
+2025-05-20 21:08:09,029 - flaskr.satellite - ERROR - Error in route /: 'above'
+Traceback (most recent call last):
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:08:09,029 - flaskr - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:08:09,030 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:09] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-20 21:08:10,076 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-20 21:08:10,076 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:08:10,076 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 21:08:10,077 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 21:08:10,438 - flaskr.satellite - ERROR - Error fetching nearby satellites: 'above'
+2025-05-20 21:08:10,439 - flaskr.satellite - ERROR - Error in route /: 'above'
+Traceback (most recent call last):
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:08:10,440 - flaskr - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:08:10,441 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:10] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-20 21:08:11,126 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-20 21:08:11,127 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:08:11,127 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 21:08:11,128 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 21:08:11,468 - flaskr.satellite - ERROR - Error fetching nearby satellites: 'above'
+2025-05-20 21:08:11,468 - flaskr.satellite - ERROR - Error in route /: 'above'
+Traceback (most recent call last):
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:08:11,469 - flaskr - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:08:11,470 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:11] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-20 21:08:12,041 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-20 21:08:12,041 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:08:12,042 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 21:08:12,042 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 21:08:12,399 - flaskr.satellite - ERROR - Error fetching nearby satellites: 'above'
+2025-05-20 21:08:12,400 - flaskr.satellite - ERROR - Error in route /: 'above'
+Traceback (most recent call last):
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:08:12,401 - flaskr - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:08:12,402 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:12] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-20 21:08:13,006 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-20 21:08:13,007 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:08:13,007 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 21:08:13,007 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 21:08:13,363 - flaskr.satellite - ERROR - Error fetching nearby satellites: 'above'
+2025-05-20 21:08:13,364 - flaskr.satellite - ERROR - Error in route /: 'above'
+Traceback (most recent call last):
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:08:13,364 - flaskr - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:08:13,365 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:13] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-20 21:08:13,919 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-20 21:08:13,919 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:08:13,919 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 21:08:13,919 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 21:08:14,281 - flaskr.satellite - ERROR - Error fetching nearby satellites: 'above'
+2025-05-20 21:08:14,281 - flaskr.satellite - ERROR - Error in route /: 'above'
+Traceback (most recent call last):
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:08:14,282 - flaskr - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:08:14,283 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:14] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-20 21:08:14,834 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-20 21:08:14,834 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:08:14,834 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 21:08:14,834 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 21:08:15,195 - flaskr.satellite - ERROR - Error fetching nearby satellites: 'above'
+2025-05-20 21:08:15,195 - flaskr.satellite - ERROR - Error in route /: 'above'
+Traceback (most recent call last):
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:08:15,196 - flaskr - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 386, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:08:15,197 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:08:15] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-20 21:11:54,395 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 21:11:54,396 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-20 21:11:58,284 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-20 21:11:58,285 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:11:58,285 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 21:11:58,285 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 21:11:58,651 - flaskr.satellite - INFO - Retrieved data from N2YO API: {'error': "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 7"}
+2025-05-20 21:11:58,651 - flaskr.satellite - ERROR - Error fetching nearby satellites: 'above'
+2025-05-20 21:11:58,651 - flaskr.satellite - ERROR - Error in route /: 'above'
+Traceback (most recent call last):
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 387, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:11:58,653 - flaskr - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 102, in decorated_function
+    result = f(*args, **kwargs)
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 117, in index
+    nearsats = get_near()
+  File "/Users/jordanlloyd/Projects/Blockchain-Satellite-Tracking-and-Prediction-App/Code/flaskr/satellite.py", line 387, in get_near
+    nearsat = data['above']
+KeyError: 'above'
+2025-05-20 21:11:58,657 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:11:58] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-20 21:14:18,150 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 21:14:18,150 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-20 21:14:21,040 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-20 21:14:21,041 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:14:21,041 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 21:14:21,065 - flaskr.satellite - INFO - Route completed in 0.03 seconds
+2025-05-20 21:14:21,067 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:21] "GET / HTTP/1.1" 200 -
+2025-05-20 21:14:21,148 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:21] "[36mGET /static/assets/img/pexels-spacex-23763.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:14:21,150 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:21] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
+2025-05-20 21:14:21,151 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:21] "[36mGET /static/assets/css/simple-footer.css HTTP/1.1[0m" 304 -
+2025-05-20 21:14:21,152 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:21] "[36mGET /static/assets/img/pexels-pixabay-41006.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:14:21,153 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:21] "[36mGET /static/assets/img/pexels-pixabay-2156.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:14:21,156 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:21] "[36mGET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+2025-05-20 21:14:21,158 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:21] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+2025-05-20 21:14:21,161 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:21] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
+2025-05-20 21:14:30,363 - flaskr.satellite - INFO - Route accessed: GET /about
+2025-05-20 21:14:30,364 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:14:30,364 - flaskr.satellite - INFO - Accessing about page
+2025-05-20 21:14:30,370 - flaskr.satellite - INFO - Route completed in 0.01 seconds
+2025-05-20 21:14:30,370 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:30] "GET /about HTTP/1.1" 200 -
+2025-05-20 21:14:30,453 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:30] "[36mGET /static/assets/css/simple-footer.css HTTP/1.1[0m" 304 -
+2025-05-20 21:14:30,453 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:30] "[36mGET /static/bootstrap.min.css HTTP/1.1[0m" 304 -
+2025-05-20 21:14:30,454 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:30] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
+2025-05-20 21:14:30,455 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:30] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+2025-05-20 21:14:30,459 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:30] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
+2025-05-20 21:14:30,462 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:30] "[36mGET /static/assets/img/pexels-philippe-donn-1169754.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:14:31,594 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-20 21:14:31,594 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:14:31,594 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 21:14:31,595 - flaskr.satellite - INFO - Route completed in 0.00 seconds
+2025-05-20 21:14:31,595 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:31] "GET / HTTP/1.1" 200 -
+2025-05-20 21:14:31,641 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:31] "[36mGET /static/assets/css/simple-footer.css HTTP/1.1[0m" 304 -
+2025-05-20 21:14:31,644 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:31] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
+2025-05-20 21:14:31,646 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:31] "[36mGET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+2025-05-20 21:14:31,646 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:31] "[36mGET /static/assets/img/pexels-spacex-23763.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:14:31,647 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:31] "[36mGET /static/assets/img/pexels-pixabay-2156.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:14:31,649 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:31] "[36mGET /static/assets/img/pexels-pixabay-41006.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:14:31,650 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:31] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+2025-05-20 21:14:31,650 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:14:31] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
+2025-05-20 21:17:20,748 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 21:17:20,748 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-20 21:17:22,968 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-20 21:17:22,969 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:17:22,969 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 21:17:22,969 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 21:17:24,434 - flaskr.satellite - INFO - Retrieved data from N2YO API: {'error': "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 7"}
+2025-05-20 21:17:24,435 - flaskr.satellite - INFO - Found 0 nearby satellites
+2025-05-20 21:17:24,456 - flaskr.satellite - INFO - Route completed in 1.49 seconds
+2025-05-20 21:17:24,457 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:24] "GET / HTTP/1.1" 200 -
+2025-05-20 21:17:24,537 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:24] "[36mGET /static/assets/img/pexels-pixabay-2156.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:17:24,537 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:24] "[36mGET /static/assets/img/pexels-pixabay-41006.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:17:24,537 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:24] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
+2025-05-20 21:17:24,537 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:24] "[36mGET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+2025-05-20 21:17:24,537 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:24] "[36mGET /static/assets/css/simple-footer.css HTTP/1.1[0m" 304 -
+2025-05-20 21:17:24,538 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:24] "[36mGET /static/assets/img/pexels-spacex-23763.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:17:24,547 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:24] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
+2025-05-20 21:17:24,547 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:24] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+2025-05-20 21:17:27,285 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-20 21:17:27,287 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-20 21:17:27,287 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-20 21:17:27,287 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-20 21:17:27,633 - flaskr.satellite - INFO - Retrieved data from N2YO API: {'error': "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 7"}
+2025-05-20 21:17:27,633 - flaskr.satellite - INFO - Found 0 nearby satellites
+2025-05-20 21:17:27,634 - flaskr.satellite - INFO - Route completed in 0.35 seconds
+2025-05-20 21:17:27,635 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:27] "GET / HTTP/1.1" 200 -
+2025-05-20 21:17:27,687 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:27] "[36mGET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+2025-05-20 21:17:27,697 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:27] "[36mGET /static/assets/css/simple-footer.css HTTP/1.1[0m" 304 -
+2025-05-20 21:17:27,698 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:27] "[36mGET /static/assets/img/pexels-pixabay-41006.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:17:27,698 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:27] "[36mGET /static/assets/img/pexels-pixabay-2156.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:17:27,698 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:27] "[36mGET /static/assets/img/pexels-spacex-23763.jpg HTTP/1.1[0m" 304 -
+2025-05-20 21:17:27,699 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:27] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
+2025-05-20 21:17:27,699 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:27] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+2025-05-20 21:17:27,704 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:27] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
