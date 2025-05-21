@@ -9,6 +9,7 @@ A decentralized application for tracking and predicting satellite positions usin
 - Decentralized data storage using blockchain
 - Interactive web interface
 - Smart contract integration for data verification
+- Comprehensive logging system for debugging and monitoring
 
 ## Prerequisites
 
@@ -40,7 +41,7 @@ npm install -g truffle
 
 4. Start Ganache (local blockchain):
 ```bash
-ganache-cli -p 8545
+ganache-cli -p 7545
 ```
 
 5. Deploy smart contracts:
@@ -102,7 +103,7 @@ For a complete list of dependencies, please refer to `requirements.txt`.
 ## Environment Setup
 
 Make sure to set up your environment variables:
-1. Create a `.env` file in the root directory
+1. Create a `.env` file in the root directory and use the `.env.example` file as a template
 2. Add necessary API keys and configuration:
    - N2YO API key
    - Google Maps API key

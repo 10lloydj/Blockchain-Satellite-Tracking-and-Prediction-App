@@ -711,3 +711,35 @@ KeyError: 'above'
 2025-05-20 21:17:27,699 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:27] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
 2025-05-20 21:17:27,699 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:27] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
 2025-05-20 21:17:27,704 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 21:17:27] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
+2025-05-21 19:55:42,306 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-21 19:55:42,308 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-21 19:55:42,308 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-21 19:55:42,308 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-21 19:55:43,810 - flaskr.satellite - INFO - Retrieved data from N2YO API: {'info': {'category': 'ANY', 'transactionscount': 0, 'satcount': 3}, 'above': [{'satid': 17803, 'satname': 'COSMOS 1375 DEB', 'intDesignator': '1982-055AV', 'launchDate': '1982-06-06', 'satlat': 53.2046, 'satlng': -1.9936, 'satalt': 944.8993}, {'satid': 57165, 'satname': 'SL-8 DEB', 'intDesignator': '1983-103C', 'launchDate': '1983-10-12', 'satlat': 53.0883, 'satlng': -2.0268, 'satalt': 778.8806}, {'satid': 58655, 'satname': 'BEIDOU 3 M26', 'intDesignator': '2023-207B', 'launchDate': '2023-12-26', 'satlat': 55.4188, 'satlng': -1.0713, 'satalt': 21546.3228}]}
+2025-05-21 19:55:43,811 - flaskr.satellite - INFO - Found 3 nearby satellites
+2025-05-21 19:55:43,816 - flaskr.satellite - INFO - Route completed in 1.51 seconds
+2025-05-21 19:55:43,818 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 19:55:43] "GET / HTTP/1.1" 200 -
+2025-05-21 19:55:43,904 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 19:55:43] "[36mGET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+2025-05-21 19:55:43,905 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 19:55:43] "[36mGET /static/assets/css/simple-footer.css HTTP/1.1[0m" 304 -
+2025-05-21 19:55:43,905 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 19:55:43] "[36mGET /static/assets/img/pexels-spacex-23763.jpg HTTP/1.1[0m" 304 -
+2025-05-21 19:55:43,911 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 19:55:43] "[36mGET /static/assets/img/pexels-pixabay-2156.jpg HTTP/1.1[0m" 304 -
+2025-05-21 19:55:43,912 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 19:55:43] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
+2025-05-21 19:55:43,912 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 19:55:43] "[36mGET /static/assets/img/pexels-pixabay-41006.jpg HTTP/1.1[0m" 304 -
+2025-05-21 19:55:43,914 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 19:55:43] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+2025-05-21 19:55:43,916 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 19:55:43] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
+2025-05-21 19:57:28,143 - flaskr.satellite - INFO - Route accessed: GET /
+2025-05-21 19:57:28,144 - flaskr.satellite - INFO - Request parameters: {}
+2025-05-21 19:57:28,145 - flaskr.satellite - INFO - Accessing satellite index page
+2025-05-21 19:57:28,145 - flaskr.satellite - INFO - Fetching nearby satellites
+2025-05-21 19:57:28,516 - flaskr.satellite - INFO - Retrieved data from N2YO API: {'info': {'category': 'ANY', 'transactionscount': 1, 'satcount': 2}, 'above': [{'satid': 58655, 'satname': 'BEIDOU 3 M26', 'intDesignator': '2023-207B', 'launchDate': '2023-12-26', 'satlat': 55.4455, 'satlng': -0.0766, 'satalt': 21546.414}, {'satid': 61705, 'satname': 'STARLINK-32515', 'intDesignator': '2024-195U', 'launchDate': '2024-10-30', 'satlat': 53.3117, 'satlng': -1.9269, 'satalt': 480.6465}]}
+2025-05-21 19:57:28,517 - flaskr.satellite - INFO - Found 2 nearby satellites
+2025-05-21 19:57:28,520 - flaskr.satellite - INFO - Route completed in 0.38 seconds
+2025-05-21 19:57:28,522 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 19:57:28] "GET / HTTP/1.1" 200 -
+2025-05-21 19:57:28,653 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 19:57:28] "[36mGET /static/assets/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+2025-05-21 19:57:28,655 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 19:57:28] "[36mGET /static/assets/css/simple-footer.css HTTP/1.1[0m" 304 -
+2025-05-21 19:57:28,662 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 19:57:28] "[36mGET /static/assets/img/pexels-pixabay-2156.jpg HTTP/1.1[0m" 304 -
+2025-05-21 19:57:28,662 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 19:57:28] "[36mGET /static/assets/js/jquery.min.js HTTP/1.1[0m" 304 -
+2025-05-21 19:57:28,663 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 19:57:28] "[36mGET /static/assets/img/pexels-spacex-23763.jpg HTTP/1.1[0m" 304 -
+2025-05-21 19:57:28,668 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 19:57:28] "[36mGET /static/assets/img/pexels-pixabay-41006.jpg HTTP/1.1[0m" 304 -
+2025-05-21 19:57:28,670 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 19:57:28] "[36mGET /static/assets/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+2025-05-21 19:57:28,675 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 19:57:28] "[36mGET /static/assets/js/bs-init.js HTTP/1.1[0m" 304 -
