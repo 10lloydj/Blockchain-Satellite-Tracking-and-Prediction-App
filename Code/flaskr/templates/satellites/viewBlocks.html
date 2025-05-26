@@ -27,48 +27,54 @@
         </nav>
     </header>
     <main>
-        <section>                       <!--  MAIN SECTION: contains the blockchain table  -->
-            <h4 class="display-4 text-center" style="padding-bottom: 20px;">Smart Contract Blocks</h4>
-            <h6 class="text-muted text-center card-subtitle mb-2" style="padding-bottom: 20px;">A transaction is created each time a block is changed or called</h6>
+        <!-- MAIN SECTION: contains the blockchain table -->
+        <section class="my-5">
             <div class="container">
-                <div>
-                    <div class="table-responsive text-left border rounded shadow-lg">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Transaction Hash</th>
-                                    <th>Block number</th>
-                                    <th>Date Saved</th>
-                                    <th>Satellite Name</th>
-                                    <th>NORAD ID<br /></th>
-                                    <th>Longitude<br /></th>
-                                    <th>Latitude</th>
-                                    <!--<th>Time/Date (UTC)<br /></th>-->
-                                    <th>Azimuth<br /></th>
-                                    <th>Elevation<br /></th>
-                                    <th>Comments</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- a row for each block-->
-                                <!-- imports the block data from the database-->
-                                {% for block in blocks %}
+                 <h2 class="text-center mb-4">Smart Contract Blocks</h2>
+                 <p class="text-muted text-center mb-4">A transaction is created each time a block is changed or called</p>
+                <div class="card shadow-lg">
+                    <div class="card-header">
+                        Blockchain Transaction History
+                    </div>
+                    <div class="card-body">
+                         <div class="table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead>
                                     <tr>
-                                        <td>{{block['tx_hash']}}</td>
-                                        <td>{{block['block_no']}}</td>
-                                        <td>{{block['date']}}</td>
-                                        <td>{{block['satname']}}</td>
-                                        <td>{{block['satid']}}</td>
-                                        <td>{{block['longitude']}}</td>
-                                        <td>{{block['latitude']}}</td>
-                                        <!--<td>{{block['timestamp']}}</td>-->
-                                        <td>{{block['azimuth']}}</td>
-                                        <td>{{block['elevation']}}</td>
-                                        <td>{{block['comment']}}</td>
+                                        <th>Transaction Hash</th>
+                                        <th>Block number</th>
+                                        <th>Date Saved</th>
+                                        <th>Satellite Name</th>
+                                        <th>NORAD ID<br /></th>
+                                        <th>Longitude<br /></th>
+                                        <th>Latitude</th>
+                                        <!--<th>Time/Date (UTC)<br /></th>-->
+                                        <th>Azimuth<br /></th>
+                                        <th>Elevation<br /></th>
+                                        <th>Comments</th>
                                     </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    <!-- a row for each block-->
+                                    <!-- imports the block data from the database-->
+                                    {% for block in blocks %}
+                                        <tr>
+                                            <td>{{block['tx_hash']}}</td>
+                                            <td>{{block['block_no']}}</td>
+                                            <td>{{block['date']}}</td>
+                                            <td>{{block['satname']}}</td>
+                                            <td>{{block['satid']}}</td>
+                                            <td>{{block['longitude']}}</td>
+                                            <td>{{block['latitude']}}</td>
+                                            <!--<td>{{block['timestamp']}}</td>-->
+                                            <td>{{block['azimuth']}}</td>
+                                            <td>{{block['elevation']}}</td>
+                                            <td>{{block['comment']}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                         </div>
                     </div>
                 </div>
             </div>
@@ -85,6 +91,7 @@
             </div>
         </div>
     </footer>
+    <script src="static/assets/js/jquery.min.js"></script>
 </body>
 
 </html>

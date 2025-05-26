@@ -26,131 +26,120 @@
         </nav>
     </header>
     <main>
-        <section>                       <!--  data of the track satellite  -->
+        <section class="my-5">
             <div class="container">
-                <div style="padding: 20px;">
-                    <div class="row">
-                        <div class="col">
-                            <div class="table-responsive">
-                                <table class="table ">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>N2yo Topic</th>
-                                            <th>Data Values</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Satellite Name</td>
-                                            <td>{{satdata['info']['satname']}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>NORAD ID</td>
-                                            <td>{{satdata['info']['satid']}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Longitude</td>
-                                            <td>{{satdata['positions'][0]['satlongitude']}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Latitude</td>
-                                            <td>{{satdata['positions'][0]['satlatitude']}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Time/Data</td>
-                                          <!--  <td>{{satdata['positions'][0]['timestamp']}}</td> -->
-                                            <td>{{utc}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Azimuth</td>
-                                            <td>{{satdata['positions'][0]['azimuth']}}</td>
-                                        </tr> 
-                                        <tr>
-                                            <td>Elevation</td>
-                                            <td>{{satdata['positions'][0]['elevation']}}</td>
-                                        </tr>                                       
-                                    </tbody>
-                                </table>
+                <h2 class="text-center mb-4">Satellite Details</h2>
+                <div class="row">
+
+                    <!-- Left Column: Satellite Data, Save Button, Prediction Form -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                Current Information for {{ satdata['info']['satname'] }}
                             </div>
-                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#blockModal">Save</button>
-                        <!-- blockchain modal with comment section-->
-                        <div class="modal fade" id="blockModal" role="dialog">
-                            <div class="modal-dialog">
-                                <!-- modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h3 class="modal-title">Save the {{satdata['info']['satname']}}  data to the smart contract </h3>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <form method="POST"><input type="text" class="form-control" placeholder="Comments" id="satComment" name="satComment"/>
-                                            <button class="btn btn-primary" type="submit" name="submit" value="save">Save</button></form>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                      </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>NORAD ID:</strong> {{ satdata['info']['satid'] }}</li>
+                                <li class="list-group-item"><strong>Longitude:</strong> {{ satdata['positions'][0]['satlongitude'] }}</li>
+                                <li class="list-group-item"><strong>Latitude:</strong> {{ satdata['positions'][0]['satlatitude'] }}</li>
+                                <li class="list-group-item"><strong>Time/Date (UTC):</strong> {{ utc }}</li>
+                                <li class="list-group-item"><strong>Azimuth:</strong> {{ satdata['positions'][0]['azimuth'] }}</li>
+                                <li class="list-group-item"><strong>Elevation:</strong> {{ satdata['positions'][0]['elevation'] }}</li>
+                            </ul>
+                             <div class="card-body">
+                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#blockModal">
+                                    Save Data to Blockchain
+                                </button>
+                             </div>
+                        </div>
+
+                        <!-- Prediction Form -->
+                        <div class="card mt-4">
+                             <div class="card-header">
+                                 Predict Future Position
+                             </div>
+                             <div class="card-body">
+                                <form method="POST">
+                                     <div class="form-group">
+                                         <label for="predict">Select Timeframe:</label>
+                                         <select class="form-control" name="predict" id="predict">
+                                             <option value="1">1 Hour</option>
+                                             <option value="2">2 Hours</option>
+                                             <option value="4">4 Hours</option>
+                                             <option value="6">6 Hours</option>
+                                             <option value="12">12 Hours</option>
+                                             <option value="24">1 Day</option>
+                                             <option value="40">4 Days</option>
+                                             <option value="70">7 Days</option>
+                                         </select>
+                                     </div>
+                                     <button type="submit" class="btn btn-primary btn-block" name="submit" value="predict">Predict</button>
+                                 </form>
+                             </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column: Google Map -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                Current Satellite Location
+                            </div>
+                            <div class="card-body">
+                                <div id="map">
+                                    <iframe
+                                    width="100%"
+                                    height="400"
+                                    style="border:0"
+                                    loading="lazy"
+                                    allowfullscreen
+                                    src="https://www.google.com/maps/embed/v1/place?key={{google_maps_api_key}}&q={{satdata['positions'][0]['satlatitude']}},{{satdata['positions'][0]['satlongitude']}}&amp;zoom=2">
+                                  </iframe>
                                 </div>
                             </div>
-
-                        </div>
-                        </div>
-                                    <!-- Google Map tracking -->
-                        <div class="col" id="map">
-                            <iframe
-                            width="100%"
-                            height="400"
-                            style="border:0"
-                            loading="lazy"
-                            allowfullscreen
-                            src="https://www.google.com/maps/embed/v1/place?key={{google_maps_api_key}}&q={{satdata['positions'][0]['satlatitude']}},{{satdata['positions'][0]['satlongitude']}}&amp;zoom=2">
-                          </iframe>
-                        </div><!-- width:100% height:'400'-->
-                        </div>
-                    <div class="row">
-                        <div class="col">
-                            <form method="POST"><label>Predict Satellite Position&nbsp;</label><select class="form-control" name="predict"><option value="1">1 HR</option><option value="2">2 HR</option><option value="4">4 HR</option><option value="6">6 HR</option><option value="12">12 HR</option><option value="24">1 DAY</option><option value="40">4 DAYS</option><option value="70">7 DAYS</option></select>
-                            <button
-                                class="btn btn-primary" type="submit" name="submit" value="predict">Select</button></div></div></form>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Prediction Results Section (Conditional) -->
         {% if lon is defined %}
-        <section>                   <!-- predictions of the satellites position with a google map representation -->
+        <section class="my-5 bg-light py-5">
             <div class="container">
-                <div>
-                    <div class="row">
-                                    <!-- Google Map prediction -->
-                        <div class="col" id="map2">
-                            <iframe
-                            width="100%"
-                            height="400"
-                            style="border:0"
-                            loading="lazy"
-                            allowfullscreen
-                            src="https://www.google.com/maps/embed/v1/place?key={{google_maps_api_key}}&q={{lon}},{{lat}}&amp;zoom=2">
-                          </iframe>
+                 <h2 class="text-center mb-4">Predicted Position</h2>
+                <div class="row">
+
+                     <!-- Left Column: Predicted Data -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                Predicted Coordinates
+                            </div>
+                             <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Longitude:</strong> {{ lon }}</li>
+                                <li class="list-group-item"><strong>Latitude:</strong> {{ lat }}</li>
+                             </ul>
                         </div>
-                        <div class="col">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Longitude</th>
-                                            <th>Latitude</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>{{lon}}</td>
-                                            <td>{{lat}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                    </div>
+
+                    <!-- Right Column: Google Map Prediction -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                             <div class="card-header">
+                                 Predicted Satellite Location
+                             </div>
+                            <div class="card-body">
+                                 <div id="map2">
+                                     <iframe
+                                     width="100%"
+                                     height="400"
+                                     style="border:0"
+                                     loading="lazy"
+                                     allowfullscreen
+                                     src="https://www.google.com/maps/embed/v1/place?key={{google_maps_api_key}}&q={{lon}},{{lat}}&amp;zoom=2">
+                                   </iframe>
+                                 </div>
                             </div>
                         </div>
                     </div>
@@ -158,6 +147,33 @@
             </div>
         </section>
         {% endif %}
+
+        <!-- Blockchain Modal (Keep the modal structure) -->
+        <div class="modal fade" id="blockModal" tabindex="-1" role="dialog" aria-labelledby="blockModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="blockModalLabel">Save {{satdata['info']['satname']}} Data to Blockchain</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST">
+                            <div class="form-group">
+                                <label for="satComment">Add a Comment (Optional)</label>
+                                <input type="text" class="form-control" id="satComment" name="satComment" placeholder="Enter comment here">
+                            </div>
+                            <button type="submit" class="btn btn-primary" name="submit" value="save">Save to Blockchain</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
     <footer class="footer">
         <div class="footer-2" style="background-color: rgb(255,255,255);">

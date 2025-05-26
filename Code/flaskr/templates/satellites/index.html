@@ -50,13 +50,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    {% if nearsats is defined %}
+                                    {% if nearsats %}
                                         {% for sat in nearsats %}
                                         <tr>
                                             <td>{{sat['satid']}}</td>
                                             <td>{{sat['satname']}}</td>
                                         </tr>
                                         {% endfor %}
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="2">
+                                                <div class="alert alert-info text-center" role="alert" style="margin-bottom: 0;">
+                                                    No nearby satellites found at this time.
+                                                </div>
+                                            </td>
+                                        </tr>
                                     {% endif %}
                                     </tbody>
                                 </table>
