@@ -15,6 +15,12 @@ A decentralized application for tracking and predicting satellite positions usin
 
 ---
 
+## 🌐 Live Demo
+
+[Visit the live project here](https://blockchain-satellite-prediction-app.onrender.com/)
+
+---
+
 ## Prerequisites
 
 - Python 3.9 or higher
