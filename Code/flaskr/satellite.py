@@ -16,6 +16,7 @@ from pathlib import Path
 import logging
 from functools import wraps
 import time
+from .blockchain_config import init_web3, get_contract
 
 from datetime import datetime, date, timedelta
 import calendar
@@ -50,39 +51,14 @@ if not api_key:
 # Skyfield API prediction API
 from skyfield.api import load, EarthSatellite, wgs84
 
-#   Smart Contract data set up
-
-# source: https://dev.to/gcrsaldanha/deploy-a-smart-contract-on-ethereum-with-python-truffle-and-web3py-5on
-# blockchain smart contract code, possible to do it on this
-
-# ganache address (EVM local blockchain network)
-blockchain_address = os.getenv('BLOCKCHAIN_ADDRESS', 'http://127.0.0.1:7545')
-# Client instance to interact with the blockchain
-web3 = Web3(Web3.HTTPProvider(blockchain_address))
-# Set the default account (so we don't need to set the "from" for every transaction call)
-web3.eth.defaultAccount = web3.eth.accounts[0]
-# Path to the compiled contract Satellites JSON file
-contract_artifact_path = os.getenv('CONTRACT_ARTIFACT_PATH', 'Code/flaskr/artifacts/Satellites.json')
-compiled_contract_path = PROJECT_ROOT / contract_artifact_path
-
-# Deployed contract address (changes if I migrate --reset the contract)
-deployed_contract_address = os.getenv('CONTRACT_ADDRESS')
-if not deployed_contract_address:
-    logger.error("CONTRACT_ADDRESS environment variable is not set")
-    raise ValueError("CONTRACT_ADDRESS environment variable is not set")
-deployed_contract_address = web3.to_checksum_address(deployed_contract_address)
-
-# retrieves the smart contract data
+# Initialize blockchain connection
 try:
-    with open(compiled_contract_path) as file:
-        contract_json = json.load(file)  # load contract info as JSON
-        contract_abi = contract_json['abi']  # fetch contract's abi - necessary to call its functions
-except FileNotFoundError:
-    logger.error(f"Contract artifact not found at {compiled_contract_path}")
-    raise FileNotFoundError(f"Contract artifact not found at {compiled_contract_path}")
-
-# Fetch deployed contract reference
-contract = web3.eth.contract(address=deployed_contract_address, abi=contract_abi)
+    web3 = init_web3()
+    contract = get_contract(web3)
+    logger.info("Blockchain connection initialized successfully")
+except Exception as e:
+    logger.error(f"Failed to initialize blockchain connection: {str(e)}")
+    raise
 
 # Default location coordinates
 DEFAULT_LATITUDE = float(os.getenv('DEFAULT_LATITUDE', '53.48095'))
@@ -164,6 +140,8 @@ def track():
     # presents the current time in the current time zone instead of the timestamp
     utc = getUTC(satdata['positions'][0]['timestamp'])
 
+    google_maps_api_key = os.getenv('GOOGLE_MAPS_API_KEY')
+
     if request.method == 'POST':
         satid = request.args['satelliteid']
         satdata = get_info(satid)
@@ -215,13 +193,13 @@ def track():
             logger.info(f"Predicted position - Longitude: {lon}, Latitude: {lat}")
 
             satelliteid = satid
-            return render_template('satellites/Track.html', lon=lon, lat=lat, utc=utc, satelliteid=satelliteid, satdata=satdata)
+            return render_template('satellites/Track.html', lon=lon, lat=lat, utc=utc, satelliteid=satelliteid, satdata=satdata, google_maps_api_key=google_maps_api_key)
 
     # redirected from the home page, displays the desired satellites data and the location on the map 
     if request.method == 'GET':
         satelliteid = request.args['satelliteid']
         satdata = get_info(satelliteid)
-        return render_template('satellites/Track.html', satdata=satdata, utc=utc, satelliteid=satelliteid)
+        return render_template('satellites/Track.html', satdata=satdata, utc=utc, satelliteid=satelliteid, google_maps_api_key=google_maps_api_key)
 
 # blockchain page route; retrieves the blockchain database
 @bp.route('/blocks')

@@ -105,7 +105,7 @@
                             style="border:0"
                             loading="lazy"
                             allowfullscreen
-                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBYQ-gTYh6WZ6zeGBjRTt01epBjoIcR310&q={{satdata['positions'][0]['satlatitude']}},{{satdata['positions'][0]['satlongitude']}}&amp;zoom=2">
+                            src="https://www.google.com/maps/embed/v1/place?key={{google_maps_api_key}}&q={{satdata['positions'][0]['satlatitude']}},{{satdata['positions'][0]['satlongitude']}}&amp;zoom=2">
                           </iframe>
                         </div><!-- width:100% height:'400'-->
                         </div>
@@ -132,10 +132,8 @@
                             style="border:0"
                             loading="lazy"
                             allowfullscreen
-                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBYQ-gTYh6WZ6zeGBjRTt01epBjoIcR310&q={{lon}},{{lat}}&amp;zoom=2">
+                            src="https://www.google.com/maps/embed/v1/place?key={{google_maps_api_key}}&q={{lon}},{{lat}}&amp;zoom=2">
                           </iframe>
-                          <!--src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBYQ-gTYh6WZ6zeGBjRTt01epBjoIcR310&q={{lon}},{{lat}}&amp;zoom=2">-->
-
                         </div>
                         <div class="col">
                             <div class="table-responsive">
